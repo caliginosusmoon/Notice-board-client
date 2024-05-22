@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
+
 import axios from "axios";
 import "../css/Homepage.css";
 import home from "../assets/icons/home.png";
@@ -12,6 +14,10 @@ const Homepage = () => {
   const [active, setActive] = useState("all");
   const [notices, setNotices] = useState([]);
 
+  const location = useLocation();
+  const userData = location?.state?.userData;
+  console.log(userData);
+  console.log("locationData", location);
   useEffect(() => {
     const fetchNotices = async () => {
       try {

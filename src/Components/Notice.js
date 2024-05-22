@@ -30,7 +30,7 @@ const Notice = ({
     <div className="notice-outer-container">
       <div className="notice-author">{notice?.author}</div>
       <div className="notice-title">{notice?.title}</div>
-      <div className="notice-date">{notice.date.substr(0, 10)}</div>
+      <div className="notice-date">{notice?.date?.substr(0, 10)}</div>
       <div className="notice-department">{notice?.department}</div>
       {isAdmin && (
         <div>
