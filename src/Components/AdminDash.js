@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import AllNotices from "./AllNotices";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { url } from "../config";
 
 const AdminDash = () => {
   const navigate = useNavigate();
@@ -11,7 +12,7 @@ const AdminDash = () => {
   useEffect(() => {
     const fetchNotices = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/notices/all");
+        const response = await axios.get(`${url}notices/all`);
         setNotices(() => response.data);
         console.log(response.data);
       } catch (error) {

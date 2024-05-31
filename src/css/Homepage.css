@@ -14,7 +14,7 @@ body{
 
 .app-outer-container{
     background-color: #EFF8F7;
-    margin: 10px;
+    margin: 0;
     display: flex;
 }
 
@@ -33,7 +33,7 @@ body{
 } 
 
 .nav-menu-container{
-    margin-top: 70px;
+    /* margin-top: 70px; */
     font-size: 16px;
     font-weight: 700;
     color: #fff;
@@ -48,7 +48,7 @@ body{
 }
 
 .active{
-    background-color: #40E6AE;
+    background-color: #40c6ada1;
     border-left: 5px solid white;
 }
 
@@ -65,10 +65,6 @@ body{
     background-color: white;
 }
 
-.username{
-    align-content: end;
-    font-size: large;
-}
 
 .alltext-Notices{
     display: flex;
@@ -98,9 +94,10 @@ body{
 }
 
 .search-filter{
-        background-color: #fff;
+        background-color: white;
         display: flex;
         gap: 10px;
+        justify-content: center;
         align-items: center;
         padding: 0 15px;
 }

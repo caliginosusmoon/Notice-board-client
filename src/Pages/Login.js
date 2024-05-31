@@ -1,17 +1,19 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { url } from "../config";
 
 const Login = () => {
   const [userid, setUserid] = useState("");
   const [password, setPassword] = useState("");
-  const [userData, setUserData] = useState();
+  const [userData, setUserData] = useState({});
   const navigate = useNavigate();
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const loginResponse = validateLogin();
+    const loginResponse = await validateLogin();
+    console.log(loginResponse);
     if (loginResponse) {
-      navigate("/home", { state: { userData: userData } });
+      // navigate("/home", { state: { userData: userData } });
     } else {
       alert("invalid login");
     }
@@ -25,32 +27,41 @@ const Login = () => {
 
     console.log(loginData);
     try {
-      //   const res = await axios
-      //     .post("http://localhost:5000/user/login", {
-      //       userId: userid,
-      //       passWord: password,
-      //     })
-      //     .catch((err) => {
-      //       console.log(err);
-      //       //   setErrorAlert(true);
-      //       // window.alert("Invalid credentials")
-      //     });
-      const res = await axios.post(
-        "http://localhost:5000/user/login",
-        {
+      const res = await axios
+        .post(`${url}user/login`, {
           userId: userid,
           passWord: password,
-        }
-        //   {
-        //     headers: {
-        //       "Content-Type": "multipart/form-data",
-        //     },
-        //   }
-      );
+        })
+        .catch((err) => {
+          console.log(err);
+          //   setErrorAlert(true);
+          // window.alert("Invalid credentials")
+        });
+      // const res = await axios.post(
+      //   "http://localhost:5000/user/login",
+      //   {
+      //     userId: userid,
+      //     passWord: password,
+      //   }
+      //   //   {
+      //   //     headers: {
+      //   //       "Content-Type": "multipart/form-data",
+      //   //     },
+      //   //   }
+      // );
       // .then(setUserData)
-      console.log(res.data, loginData);
-      setUserData(() => res?.data);
-      if (res.message === "Login Successful") {
+      console.log(res?.data);
+      setUserData(res?.data?.user);
+      console.log("userData is ", userData);
+      if (res?.data?.message === "Login Successful") {
+        navigate("/home", { state: { userData: res?.data?.user } });
+        const udata = {
+          firstName: res?.data?.user?.firstName,
+          lastName: res?.data?.user?.lastName,
+          email: res?.data?.user?.email,
+        };
+        localStorage.setItem("userData", JSON.stringify(udata));
+
         return true;
       } else {
         return false;
@@ -60,11 +71,12 @@ const Login = () => {
     }
   };
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
+    <div className="login-container">
+      <form className="login-form" onSubmit={handleSubmit}>
         <input
           type="text"
           name="userid"
+          placeholder="Username"
           value={userid}
           onChange={(e) => {
             setUserid(e.target.value);
@@ -73,6 +85,7 @@ const Login = () => {
         <input
           type="password"
           name="password"
+          placeholder="Password"
           value={password}
           onChange={(e) => {
             setPassword(e.target.value);

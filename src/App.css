@@ -8,3 +8,125 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 
+.login-container{
+    margin: 0 auto;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
+    background: transparent;
+    padding: 50px;
+    box-shadow: 0px 0px 15px #4fa4887f;
+}
+
+input, select{
+    border: none;
+        background-color: #fff;
+        width: 200px;
+        height: 30px;
+        padding: 2px 5px;
+
+}
+
+button{
+    background-color: transparent;
+        border: 1px solid #4fa488;
+        color: #4fa488;
+        font-weight: 700;
+        width: 200px;
+        height: 30px;
+}
+
+::placeholder{
+    color: rgb(182, 188, 184);
+}
+
+button:hover{
+    background: #4fa488;
+    color: #fff;
+    cursor: pointer;
+}
+
+.notice-info{
+    display: flex;
+    justify-content: space-between;
+}
+
+.notice-detail-title{
+   text-align: center;
+    font-size: x-large;
+}
+
+.top-outer-container{
+    text-align: right;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 15px 55px;
+            gap: 10px;
+            /* margin-right: 35px; */
+            
+}
+
+.username{
+    font-size: 15px;
+}
+
+.notice-detail-container{
+    background-color: white;
+    padding: 20px;
+    margin-top: 2rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+
+.notice-tags{
+    margin: 1rem 0;
+}
+
+.addnotice-container{
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.addnotice-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* min-width: 80vw; */
+    max-width: 500px;
+    gap: 0.5rem;
+}
+
+.rows{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    justify-content: space-between;
+    
+}
+
+.heading-text{
+    color: #4fa488;
+}
+
+.logo-container{
+    display: flex;
+    justify-content: center;
+    padding: 17px 5px ;
+}

@@ -23,7 +23,7 @@ const Department = ({ notices, isAdmin }) => {
       {notices?.map((notice) => (
         <>
           {console.log("notice is: ", notice)}
-          {notice.department === dept && (
+          {notice?.department?.toLowerCase() === dept.toLowerCase() && (
             <Notice
               title={notice?.title}
               notice={notice}
