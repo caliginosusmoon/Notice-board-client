@@ -31,57 +31,75 @@ const Register = () => {
       formDataToSend.append("userId", registerData?.userId);
       formDataToSend.append("password", registerData?.passWord);
       console.log("sending 2:", formDataToSend);
-      const response = await axios.post(`${url}users/add`, registerData);
-      alert("User Added Succesfully");
-      navigate("/");
+      const response = await axios
+        .post(`${url}user/add`, registerData)
+        .then((res) => {
+          alert("User Added Succesfully");
+          navigate("/");
+          console.log("res", res);
+        });
+      console.log(response);
     } catch (error) {
+      alert("user exists");
       console.log("error", error);
     }
-
-    return (
+  };
+  return (
+    <div>
       <div className="login-container">
-        hello
         <form className="login-form" onSubmit={handleSubmit}>
+          <hr />
           <input
             type="text"
-            name="firstname"
+            name="firstName"
             placeholder="FirstName"
             value={registerData.firstName}
             onChange={handleChange}
           />
           <input
             type="text"
-            name="lastname"
+            name="lastName"
             placeholder="LastName"
             value={registerData.lastName}
             onChange={handleChange}
           />
           <input
             type="text"
-            name="email"
+            name="emailId"
             placeholder="Enter Valid Email"
-            value={registerData.email}
+            value={registerData.emailId}
             onChange={handleChange}
           />
           <input
             type="text"
-            name="userid"
+            name="userId"
             placeholder="Username"
-            value={registerData.userid}
+            value={registerData.userId}
             onChange={handleChange}
           />
           <input
             type="password"
-            name="password"
+            name="passWord"
             placeholder="Password"
-            value={registerData.password}
+            value={registerData.passWord}
             onChange={handleChange}
           />
-          <button type="Submit">Login</button>
+          <button type="Submit">Sign up</button>
+          <div className="register-text">
+            <div>Already have an account?</div>
+            <div
+              className="action-text"
+              onClick={() => {
+                navigate("/");
+              }}
+            >
+              Login
+            </div>
+          </div>
         </form>
       </div>
-    );
-  };
+    </div>
+  );
 };
 
 export default Register;

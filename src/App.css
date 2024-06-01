@@ -130,3 +130,16 @@ button:hover{
     justify-content: center;
     padding: 17px 5px ;
 }
+
+.register-text{
+    display: flex;
+    font-size: 12px;
+    gap: 4px;
+}
+
+.action-text{
+    color: #4fa488;
+    text-decoration: underline;
+    cursor: pointer;
+    font-weight: 500;
+}

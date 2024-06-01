@@ -92,6 +92,17 @@ const Login = () => {
           }}
         />
         <button type="Submit">Login</button>
+        <div className="register-text">
+          <div>Don't have an account?</div>
+          <div
+            className="action-text"
+            onClick={() => {
+              navigate("/register");
+            }}
+          >
+            Register
+          </div>
+        </div>
       </form>
     </div>
   );

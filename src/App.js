@@ -8,6 +8,7 @@ import AdminDash from "./Components/AdminDash";
 import Login from "./Pages/Login";
 import NoticeDetails from "./Pages/NoticeDetails";
 import SideBar from "./Components/SideBar";
+import Register from "./Pages/Register";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Login />} />
+          <Route path="/register" element={<Register />} />
           <Route path="/home" element={<Homepage />} />
           <Route path="/admin/add" element={<AddNotice />} />
           <Route path="/admin/login" element={<AdminLogin />} />
